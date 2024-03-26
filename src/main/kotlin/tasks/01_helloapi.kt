@@ -1,12 +1,12 @@
-package org.example.tasks
+package tasks
 
-import org.example.authorize
-import org.example.extractTokenFromJson
-import org.example.fetchTask
-import org.example.submitAnswer
+import utils.authorizeTask
+import utils.extractStringFromJsonString
+import utils.fetchTask
+import utils.submitAnswer
 
 fun main() {
-    val authorizationToken = authorize("helloapi")
-    val answer = extractTokenFromJson(fetchTask(authorizationToken), "cookie")
+    val authorizationToken = authorizeTask("helloapi")
+    val answer = extractStringFromJsonString(fetchTask(authorizationToken), "cookie")
     submitAnswer(authorizationToken, answer)
 }
