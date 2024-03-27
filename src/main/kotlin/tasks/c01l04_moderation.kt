@@ -10,7 +10,7 @@ suspend fun main() {
     val taskPayload = extractArrayFromJsonString(fetchTask(authorizationToken), "input")
 
     val request: ModerationRequest = moderationRequest {
-        input = taskPayload.filterIsInstance<String>().map { it }
+        input = taskPayload
     }
     val moderation = openAI.moderations(request)
 

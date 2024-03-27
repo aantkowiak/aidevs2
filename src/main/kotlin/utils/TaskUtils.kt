@@ -5,6 +5,7 @@ import org.json.JSONObject
 import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.*
 
 fun authorizeTask(taskName: String): String {
     val url = URL("https://tasks.aidevs.pl/token/$taskName")
@@ -30,6 +31,7 @@ fun fetchTask(token: String): String {
     val taskJson = connection.inputStream.bufferedReader().readText()
     consoleSeparator()
     println(taskJson)
+    consoleSeparator()
     return taskJson
 }
 
@@ -37,9 +39,11 @@ fun extractStringFromJsonString(jsonString: String, fieldName: String): String {
     val jsonObject = JSONObject(jsonString)
     return jsonObject.getString(fieldName)
 }
-fun extractArrayFromJsonString(jsonString: String, fieldName: String): JSONArray {
+fun extractArrayFromJsonString(jsonString: String, fieldName: String): List<String> {
     val jsonObject = JSONObject(jsonString)
-    return jsonObject.getJSONArray(fieldName)
+    return jsonObject.getJSONArray(fieldName).toList()
+        .filterIsInstance<String>().map { it }
+        .filter(Objects::nonNull).toList()
 }
 
 fun submitAnswer(token: String, answer: String, isArray: Boolean = false) {

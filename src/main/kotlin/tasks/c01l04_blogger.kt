@@ -9,7 +9,7 @@ suspend fun main() {
     val taskPayload =
         extractArrayFromJsonString(fetchTask(authorizationToken), "blog").filterIsInstance<String>().map { it }
 
-    val separator = "\n\n #### "
+
     val instruction =
         "Write a blog entry (in Polish) about making Margherita pizza. As input you will receive a list of 4 " +
                 "chapters that must appear in the result. You must return an array as a response " +

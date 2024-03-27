@@ -1,20 +1,5 @@
 package tasks
 
-//suspend fun main() {
-//    val authorizationToken = authorizeTask("liar")
-//
-//    val taskPayload = extractArrayFromJsonString(fetchTask(authorizationToken), "input")
-////
-////    val request: ModerationRequest = moderationRequest {
-////        input = taskPayload.filterIsInstance<String>().map { it }
-////    }
-////    val moderation = openAI.moderations(request)
-////
-////    val answer = moderation.results.stream().map { i -> i.flagged }.map { i -> if (i) 1 else 0 }.toList()
-////
-////    submitAnswer(authorizationToken, answer.toString(), true)
-//}
-
 import com.aallam.openai.api.chat.ChatCompletion
 import com.google.gson.Gson
 import io.ktor.client.*
@@ -41,9 +26,6 @@ fun main() {
         val userPrompt = "Question: $question Answer: $answerToVerify"
         val completion: ChatCompletion = openAI.chatCompletion(chatCompletionRequest(systemPrompt, userPrompt))
         val answer = completion.choices[completion.choices.lastIndex].message.content
-        println("SYSTEM PROMPT: $systemPrompt")
-        println("USER PROMPT: $userPrompt")
-        println("###########   ANSWER: ")
         println(answer)
         submitAnswer(authorizationToken, answer!!)
     }

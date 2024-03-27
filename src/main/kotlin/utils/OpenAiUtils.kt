@@ -1,5 +1,6 @@
 package utils
 
+import com.aallam.openai.api.chat.ChatCompletion
 import com.aallam.openai.api.chat.ChatCompletionRequest
 import com.aallam.openai.api.chat.ChatMessage
 import com.aallam.openai.api.chat.ChatRole
@@ -31,3 +32,8 @@ fun chatCompletionRequest(systemPrompt: String, userPrompt: String): ChatComplet
     return chatCompletionRequest
 }
 
+fun extractContent(nameCompletion: ChatCompletion) =
+    nameCompletion.choices[nameCompletion.choices.lastIndex].message.content
+
+
+val separator = "\n\n #### "
