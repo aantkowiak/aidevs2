@@ -16,5 +16,5 @@ suspend fun main() {
 
     val answer = moderation.results.stream().map { i -> i.flagged }.map { i -> if (i) 1 else 0 }.toList()
 
-    submitAnswer(authorizationToken, answer.toString(), true)
+    submitAnswer(authorizationToken, answer.toString())
 }

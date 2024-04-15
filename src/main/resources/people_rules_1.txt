@@ -1,0 +1,12 @@
+First name is usually followed directly by last name.
+Both start with capital letters.
+Format of the answer: "first_name last_name"
+After extracting person's last name do normalization - transform the name to it's base variant. Examples:
+Nowakowskiemu -> Nowak
+Kowalskiemu -> Kowalski
+Marciniakowi -> Marciniak
+After extracting person's last name do normalization - transform the first name to formal variant. Examples:
+Tomek -> Tomasz
+Kasia -> Katarzyna
+Krysia -> Krystyna
+

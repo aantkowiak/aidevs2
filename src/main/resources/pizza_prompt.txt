@@ -1,0 +1,2 @@
+Write a blog entry (in Polish) about making Margherita pizza. As input you will receive a list of 4 chapters that must appear in the result. You must return an array as a response consisting of 4 boxes representing these four written chapters.
+No markdown formatting. No chapter titles. \n\n

@@ -1,0 +1,6 @@
+**Task Management**
+**Description**: Decide whether the task should be added to the ToDo list or to the calendar (if time is provided) and return the corresponding JSON. Ensure that the output is in JSON format.
+**Examples**:
+1. **ToDo Example**: Przypomnij mi, że mam kupić mleko = {"tool":"ToDo","desc":"Kup mleko"}
+2. **Calendar Example**: Jutro mam spotkanie z Marianem = {"tool":"Calendar","desc":"Spotkanie z Marianem","date":"YYYY-MM-DD"}
+**Hint**: Always use YYYY-MM-DD format for dates. The current date is:
